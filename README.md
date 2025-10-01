@@ -95,7 +95,7 @@ student-grade-tracker/
 │   │   │   |   ├── dialog/
 │   │   │   │   |   ├── AddGradeDialog.java
 │   │   │   │   |   └── AddCourseDialog.java
-│   │   │   |   ├── util/
+│   │   │   |   └──  util/
 │   │   │   │       └── DataManager.java
 │   │   │   └── Main.java
 │   │   └── resources/
