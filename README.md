@@ -84,7 +84,7 @@ student-grade-tracker/
 │   ├── main/
 │   │   ├── java/
 │   │   │   ├── com.protfolio.studentgradetracker/
-|   |   |   |   ├──model/
+|   |   |   |   ├── model/
 │   │   │   │   |   ├── Student.java
 │   │   │   │   |   ├── Course.java
 │   │   │   │   |   ├── Grade.java
@@ -92,7 +92,10 @@ student-grade-tracker/
 │   │   │   |   ├── controller/
 │   │   │   │   |   ├── MainController.java
 │   │   │   │   |   └── CourseViewController.java
-│   │   │   |   └── util/
+│   │   │   |   ├── dialog/
+│   │   │   │   |   ├── AddGradeDialog.java
+│   │   │   │   |   └── AddCourseDialog.java
+│   │   │   |   ├── util/
 │   │   │   │       └── DataManager.java
 │   │   │   └── Main.java
 │   │   └── resources/
@@ -107,11 +110,12 @@ student-grade-tracker/
 
 This project demonstrates proficiency in:
 - **Object-Oriented Programming**: Classes, inheritance, encapsulation
-- **JavaFX Development**: GUI design, controllers, event handling
+- **JavaFX Development**: GUI design, controllers, custom dialogs, event handling
 - **Data Structures**: ArrayLists, collections management
 - **File I/O**: Serialization and deserialization
 - **Exception Handling**: Input validation and error management
 - **Software Design**: MVC pattern, separation of concerns
+- **Custom UI Components**: Dialog creation and validation
 - **Testing**: JUnit test cases for core functionality
 
 ## 🔄 Development Status
