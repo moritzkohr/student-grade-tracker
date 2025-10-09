@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Student implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private String schoolType;
     private String gradeLevel;
@@ -20,21 +22,24 @@ public class Student implements Serializable {
     }
 
     public void addCourse(Course course) {
-        this.courses.add(course);
+        courses.add(course);
     }
 
     public void removeCourse(Course course) {
-        this.courses.remove(course);
+        courses.remove(course);
     }
 
-    //TODO: create method to get course by code
     public Course getCourseByCode(String code){
+        for(Course course : courses){
+            if(course.getCourseCode().equals(code)){
+                return course;
+            }
+        }
         return null;
     }
 
-    //TODO: create method to calculate overall grade
     public double calculateOverallGrade() {
-        return 0;
+        return GradeCalculator.calculateGPA(courses);
     }
 
     public ArrayList<Course> getCourses() {
