@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class Grade implements Comparable<Grade>, Serializable {
+    private static final long serialVersionUID = 1L;
+
     private double gradeValue;
     private String gradeType;
     private double weight;
@@ -26,14 +28,29 @@ public class Grade implements Comparable<Grade>, Serializable {
         this.dateAdded = LocalDateTime.now();
     }
 
-    //TODO: create method to determine if grade is passing, based on the school type
     public boolean isPassingGrade() {
-        return true;
+        if ("SECONDARY".equals(schoolType)) {
+            return gradeValue <= 4.0;
+        } else {
+            return gradeValue >= 5.0;
+        }
     }
 
-    //TODO: create method to get grade gradeType based on the grade value
     public String getGradeDescription() {
-        return "";
+        if ("SECONDARY".equals(schoolType)) {
+            if (gradeValue <= 1.5) return "Sehr gut";
+            if (gradeValue <= 2.5) return "Gut";
+            if (gradeValue <= 3.5) return "Befriedigend";
+            if (gradeValue <= 4.5) return "Ausreichend";
+            if (gradeValue <= 5.5) return "Mangelhaft";
+        } else {
+            if (gradeValue >= 13) return "Sehr gut";
+            if (gradeValue >= 10) return "Gut";
+            if (gradeValue >= 7) return "Befriedigend";
+            if (gradeValue >= 5) return "Ausreichend";
+            if (gradeValue >= 1) return "Mangelhaft";
+        }
+        return "Ungenügend";
     }
 
     @Override
@@ -41,9 +58,17 @@ public class Grade implements Comparable<Grade>, Serializable {
         return Double.compare(this.gradeValue, o.gradeValue);
     }
 
-    //TODO: create method to determine if grade is in the valid range
-    public boolean isValid(){
-        return true;
+    public boolean isValid() {
+        return isValidGradeValue(this.gradeValue, this.schoolType);
+    }
+
+    private boolean isValidGradeValue(double gradeValue, String schoolType) {
+        if ("SECONDARY".equals(schoolType)) {
+            return gradeValue >= 1.0 && gradeValue <= 6.0;
+        } else if ("HIGH_SCHOOL".equals(schoolType)) {
+            return gradeValue >= 0 && gradeValue <= 15;
+        }
+        return false;
     }
 
     public double getGradeValue() {
